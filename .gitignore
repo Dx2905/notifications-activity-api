@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# output
+dist/
+
+# dotenv
+.env
+
+# logs
+*.log
+npm-debug.log*
+
+# system files
+.DS_Store
+
+# docker
+docker-compose.override.yml
