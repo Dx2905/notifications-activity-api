@@ -16,7 +16,16 @@ app.use(express.json());
 app.use('/auth', authRoutes);      // Public routes (login, refresh)
 app.use('/activity', activityRoutes); // Protected routes (JWT required)
 app.use('/notify', notificationRoutes);
+
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
+// Only start the server if not in test mode
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  }
+  
+  export default app;
