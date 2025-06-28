@@ -30,9 +30,18 @@
 #           rm -rf dist
 #           npm install
 #           npm test
+name: CI - Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     services:
       redis:
         image: redis:7
@@ -60,7 +69,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: |
-          rm -rf dist
-          npm install
-          npm test
+        run: npm test
+        env:
+          REDIS_URL: redis://localhost:6379
+          NODE_ENV: test
