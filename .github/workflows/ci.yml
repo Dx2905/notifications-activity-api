@@ -26,4 +26,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm test
+        run: |
+          rm -rf dist
+          npm install
+          npm test
