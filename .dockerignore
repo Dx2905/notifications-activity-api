@@ -1,5 +1,18 @@
-# .dockerignore
-node_modules
-dist
-Dockerfile
+# Dependencies - should be installed inside Docker
+node_modules/
+
+# Build artifacts
+dist/
+
+# Local config/secrets
+.env
+
+# Logs
 *.log
+npm-debug.log*
+
+# Docker file overrides (optional)
+docker-compose.override.yml
+
+# System files (macOS)
+.DS_Store
